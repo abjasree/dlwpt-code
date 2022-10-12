@@ -116,7 +116,7 @@ class Ct:
             start_ndx = int(round(center_val - width_irc[axis]/2))
             end_ndx = int(start_ndx + width_irc[axis])
 
-            assert center_val >= 0 and center_val < self.hu_a.shape[axis], repr([self.series_uid, center_xyz, self.origin_xyz, self.vxSize_xyz, center_irc, axis])
+            #assert center_val >= 0 and center_val < self.hu_a.shape[axis], repr([self.series_uid, center_xyz, self.origin_xyz, self.vxSize_xyz, center_irc, axis])
 
             if start_ndx < 0:
                 # log.warning("Crop outside of CT array: {} {}, center:{} shape:{} width:{}".format(
@@ -163,12 +163,12 @@ class LunaDataset(Dataset):
             ]
 
         if isValSet_bool:
-            assert val_stride > 0, val_stride
+            #assert val_stride > 0, val_stride
             self.candidateInfo_list = self.candidateInfo_list[::val_stride]
-            assert self.candidateInfo_list
+            #assert self.candidateInfo_list
         elif val_stride > 0:
             del self.candidateInfo_list[::val_stride]
-            assert self.candidateInfo_list
+            #assert self.candidateInfo_list
 
         if sortby_str == 'random':
             random.shuffle(self.candidateInfo_list)
